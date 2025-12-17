@@ -111,6 +111,44 @@ public class App {
      */
     public static void gestionarOpcio(int opcio) {
        //TODO:
+       switch(opcio){
+        case 1:
+            reservarHabitacio();
+            break;
+        case 2:
+            alliberarHabitacio();
+            break;
+        case 3:
+            consultarDisponibilitat();
+            break;
+        case 4:
+            // Llistar reserves per tipus:
+            System.out.println("Seleccione tipus:");
+            System.out.println("1. Estàndard");
+            System.out.println("2. Suite");
+            System.out.println("3. Deluxe");
+            int tipus = sc.nextInt();
+            switch(tipus){
+                case 1:
+                    llistarReservesPerTipus(null, TIPUS_ESTANDARD);
+                case 2:
+                    llistarReservesPerTipus(null, TIPUS_SUITE);
+                case 3:
+                    llistarReservesPerTipus(null, TIPUS_DELUXE);
+                default:
+                    break;
+            }
+            break;
+        case 5:
+            obtindreReserva();
+            break;
+        case 6:
+            // EIXIR
+            break;
+        default: // Opcio errónea
+            System.out.println("Selecciona una opcio vàlida per favor.\n");
+            break;
+       }
     }
 
     /**
@@ -185,6 +223,14 @@ public class App {
      */
     public static void consultarDisponibilitat() {
         // TODO: Mostrar lliures i ocupades
+        int estandarLliures = disponibilitatHabitacions.get(TIPUS_ESTANDARD);
+        int suiteLliures = disponibilitatHabitacions.get(TIPUS_SUITE);
+        int deluxeLliures = disponibilitatHabitacions.get(TIPUS_DELUXE);
+
+        System.out.println("Tipus\t\tLliures\t\tOcupades");
+        System.out.println(TIPUS_ESTANDARD+"\t"+estandarLliures+"\t\t"+(CAPACITAT_ESTANDARD-estandarLliures));
+        System.out.println(TIPUS_SUITE+"\t\t"+suiteLliures+"\t\t"+(CAPACITAT_SUITE-suiteLliures));
+        System.out.println(TIPUS_DELUXE+"\t\t"+deluxeLliures+"\t\t"+(CAPACITAT_DELUXE-deluxeLliures));
     }
 
     /**
