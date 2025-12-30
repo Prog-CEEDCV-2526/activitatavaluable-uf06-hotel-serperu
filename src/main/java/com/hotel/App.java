@@ -130,6 +130,11 @@ public class App {
             case 5:
                 obtindreReserva();
                 break;
+            case 6:
+                System.out.println("Eixint del sistema...\n" +
+                        "\n" +
+                        "Gràcies per utilitzar el gestor de reserves!");
+                break;
             default:
                 System.out.println("Per favor, introduïsca un número de l'1 al 6");
                 break;
@@ -147,8 +152,8 @@ public class App {
         System.out.println("\n===== RESERVAR HABITACIÓ =====");
         //TODO:
         seleccionarTipusHabitacioDisponible();
-
         //
+
     }
 
     /**
